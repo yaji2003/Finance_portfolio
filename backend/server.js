@@ -1,12 +1,10 @@
 const express = require('express');
 const cors = require('cors');
-const yahooRoutes = require('./routes/yahoo');
+const financeRoutes = require('./routes/finance');
 
 const app = express();
 app.use(cors());
+app.use('/api/finance', financeRoutes);
 
-app.use('/api/yahoo', yahooRoutes);
-
-app.listen(5000, () => {
-  console.log('Server running on port 5000');
-});
+const PORT = 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
